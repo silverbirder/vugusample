@@ -1,0 +1,34 @@
+<div class="my-first-vugu-comp">
+    <button @click="data.Toggle()">Test</button>
+    <div vg-if="data.Show">I am here!</div>
+
+    <br>
+    <!-- カウンター -->
+    <button @click="data.Increment()">+</button>
+    <div><span vg-html='data.Count'></span></div>
+    <button @click="data.Decrement()">-</button>
+    <br>
+</div>
+
+<style>
+    .my-first-vugu-comp { background: #eee; }
+</style>
+
+<script type="application/x-go">
+    type RootData struct {
+    Show bool
+    Count int
+    }
+
+    func (data *RootData) Toggle() {
+    data.Show = !data.Show
+    }
+
+    func (data *RootData) Increment() {
+    data.Count = data.Count + 1
+    }
+
+    func (data *RootData) Decrement() {
+    data.Count = data.Count - 1
+    }
+</script>
