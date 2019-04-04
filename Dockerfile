@@ -1,14 +1,12 @@
 FROM golang:1.12.1-alpine3.9
 MAINTAINER silverbirder <silverbirder@gmail.com>
 
-WORKDIR /go/src/app
-
+WORKDIR /go/src/github.com/Silver-birder/vugusample/
+COPY . .
 ENV GO111MODULE=on
 
 RUN apk add --no-cache \
-        alpine-sdk \
-        git \
-    && go get github.com/Silver-birder/sample-vugu
+        git
 
 EXPOSE 8080
-CMD ["sample-vugu"]
+CMD ["go", "run", "devserver.go"]
