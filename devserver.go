@@ -12,7 +12,7 @@ import (
 
 func main() {
 	wd, _ := os.Getwd()
-	l := "0.0.0.0:8080"
+	l := "0.0.0.0:4000"
 	log.Printf("Starting HTTP Server at %q", l)
 	h := simplehttp.New(wd, true)
 	// include a CSS file
